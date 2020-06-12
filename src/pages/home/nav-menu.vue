@@ -15,6 +15,7 @@
           <i :class="menuItem.icon"></i>
           <span>{{menuItem.title}}</span>
         </template>
+        <!-- 递归调用自身组件 -->
         <NavMenu :navMenus="menuItem.children"></NavMenu>
       </el-submenu>
     </div>
