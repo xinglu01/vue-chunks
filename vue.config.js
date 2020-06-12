@@ -1,17 +1,13 @@
+
 module.exports = {
     productionSourceMap: process.env.NODE_ENV !== 'production',
     chainWebpack: config => {
         config.optimization.splitChunks({
-            chunks: 'all', // 仅提取按需载入的module
+            chunks: 'all',      // 仅提取按需载入的module
             maxAsyncRequests: 10, // 最大按需载入chunks提取数,
-            cacheGroups: { // 缓存组配置，默认有vendors和default
-                'core-js': {
-                    name: 'core-js',
-                    test: /[\\/]node_modules[\\/]core-js[\\/]/,
-                    priority: 10
-                },
+            cacheGroups: {      // 缓存组配置，默认有vendors和default
                 'element-ui': {
-                    name: 'element-ui',
+                    name: 'chunk-element-ui',
                     test: /[\\/]node_modules[\\/]element-ui[\\/]/,
                     priority: 5
                 }
@@ -25,7 +21,7 @@ module.exports = {
             .symlinks(true);
     },
     css: {
-        extract: true
+        extract:false
     },
     // pages: {
     //     index: {
@@ -40,7 +36,6 @@ module.exports = {
     devServer: {
         // proxy: {
 
-        // },
-       
+        // },      
     }
 }

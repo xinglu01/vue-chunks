@@ -109,11 +109,8 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" type="text/css" scoped>
-  $bgcolor: lightblue;
-  $textcolor: darkblue;
-
+<style scoped>
   .hello {
-    color: $textcolor;
+    color: lightblue;
   }
 </style>
