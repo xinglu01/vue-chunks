@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <div class="title">页面内容 element的 el-table组件二次封装</div>
     <my-table :dataList='dataList' :columns='columns' :objectSpanMethod='objectSpanMethod'></my-table>
   </div>
 </template>
@@ -112,5 +113,9 @@
 <style scoped>
   .hello {
     color: lightblue;
+  }
+  .title{
+    color: rgb(63, 60, 60);
+    margin: 20px 0;
   }
 </style>

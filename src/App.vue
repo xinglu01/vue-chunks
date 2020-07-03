@@ -19,6 +19,7 @@ export default {
     width: 100%;
     height: 100%;
     overflow-y: hidden;
+    font-size: 16px;
   }
   
 </style>
