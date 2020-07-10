@@ -299,7 +299,7 @@
                  * 客户端收到网站证书后会检查证书的颁发机构以及过期时间, 如果没有问题就随机产生一个秘钥
                  * 客户端利用公钥将会话秘钥加密, 并传送给服务端, 服务端利用自己的私钥解密出会话秘钥
                  * 之后服务器与客户端使用秘钥加密传输
-                */
+                 */
 
                 // 为什么通常在发送数据埋点请求的时候使用的是 1x1 像素的透明 gif 图片？
                 /**
@@ -307,7 +307,7 @@
                  * 执行过程无阻塞，不会阻塞页面加载，影响用户的体验
                  * GIF的最低合法体积最小
                  * 触发 GET 请求之后不需要获取和处理数据、服务器也不需要发送数据
-                */
+                 */
 
                 // 实现 (5).add(3).minus(2) 功能?
                 /**
@@ -316,34 +316,54 @@
                  * Number.prototype.minus = function (n){
                  *  return this.valueOf() - n
                  * }
-                */
+                 */
 
                 // 怎么让一个 div 水平垂直居中
                 /**
                  * display:flex 布局
                  * postion 定位布局 结合 margin / transform: translate(-50%, -50%); 
                  * display:grid  布局 justify-self: center; align-self: center;
-                */
+                 */
+
+                // {1:222, 2:123, 5:888}，请把数据处理为如下结构：[222, 123, null, null, 888, null, null, null, null, null, null, null]。
+                /**
+                 * let arr = Array.from({length:12}).map((it,i)=> data[i+1]||null);
+                 */
+
+                // ES6 代码转成 ES5 代码的实现思路是什么
+                /**
+                 * 将代码字符串解析成抽象语法树，即所谓的 AST
+                 * 对 AST 进行处理，在这个阶段可以对 ES6 代码进行相应转换，即转成 ES5 代码
+                 * 根据处理后的 AST 再生成代码字符串
+                 */
+
+                // 实现一个字符串匹配算法，从长度为 n 的字符串 S 中，查找是否存在字符串 T，T 的长度是 m，若存在返回所在位置。
+                /**
+                 * 查看函数 matchFun()
+                 */
+
+                // 周一算法题之「移动零」给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
+                /**
+                 * 查看函数 moveZero()
+                 */
+
+                // var、let 和 const 区别的实现原理是什么?
+                /**
+                 * let 定义变量，const 定义常量，两者都是块级作用域，只在所在的代码块有效；不能重复定义，并且没有变量提升，所以会存在暂时性死区。
+                 * var 会变量提升
+                 */
+
+                // 请实现一个 add 函数，满足以下功能。
+                /**
+                 * 查看函数 addFun
+                 */
 
 
 
-
-
-
-
-
-
-
-                // 以下为框架层面面试题
+                // 以下为框架层面 面试题
                 //写 React / Vue 项目时为什么要在组件中写 key，其作用是什么？
                 /**
                  * 用于diff算法比对新旧虚拟dom的时候通过key更快的找到对应的节点（map映射），提高速度，没有key就循环比对消耗资源
-                 */
-
-                // 聊聊 Vue 的双向数据绑定（响应式原理）？
-                /**
-                 * 数据劫持observer 结合 发布订阅模式 watcher dep 的方式来实现
-                 * 主要是通过 Object.defineProperty get set方法 
                  */
 
                 // 在 Vue 中，子组件为何不可以修改父组件传递的 Prop
@@ -356,7 +376,7 @@
                 /**
                  * 严格模式中使用 Vuex 时，在属于 Vuex 的 state 上使用 v-model会可能出现报错
                  * 在用户输入时，v-model 会试图直接修改 obj.message。在严格模式中，由于这个修改不是在 mutation 函数中执行的, 这里会抛出一个错误。
-                */
+                 */
 
                 // 为什么在 Vue3.0 采用了 Proxy，抛弃了 Object.defineProperty？
                 /**
@@ -364,8 +384,82 @@
                  * defineProperty不能监测数组下标的变化，导致数组添加元素，不能实时相应
                  * proxy可以劫持整个对象，并返回一个新的对象
                  * proxy有13种劫持操作
+                 */
+
+                // Vue 的父组件和子组件生命周期钩子执行顺序是什么
+                /**
+                 * 加载过程：
+                 * 父组件 beforeCreate  created  beforeMount
+                 * 子组件 beforeCreate  created  beforeMount mounted
+                 * 父组件 mounted
+                 */
+
+                // 那你能讲一讲 MVVM 吗
+                /**
+                 * mvvm 是 Model-View-ViewModel的简写
+                 * model代表数据模型 view代表UI组件  
+                 * viewModel作为中间桥梁，数据会绑定到viewModel层并自动将数据渲染到页面，视图变化时会通知viewModel层更新数据
                 */
 
+                // 简单说一下Vue2.x响应式数据原理（双向数据绑定）
+                /**
+                 *  vue2 是利用 object.defineProperty 的get set方法定义data中的属性，当页面使用属性时进行依赖收集，
+                 * 如果属性改变时，会通知相应的依赖进行更新操作（发布订阅模式）
+                */
+
+                // 那你知道Vue3.x响应式数据原理吗？
+                /**
+                 * vue3 是用proxy代替object.defineProperty。proxy可以监听这个对象，有13中劫持方式，他可以监听数组下标的变化
+                */
+
+                // vue3.x 的 Proxy只会代理对象的第一层，那么Vue3又是怎样处理这个问题的呢？
+                /**
+                 * 判断当前的 Reflect.get 是否是 Object，如果是则再用 reactive 代理
+                */
+
+                // vue3.x 监测数组的时候可能触发多次get/set，那么如何防止触发多次呢？
+                /**
+                 * 可以判断一下key是否是当前被代理的target的属性，或者判断新值和旧值是否相等，
+                 * 满足以上两种条件之一才能执行 trigger（派发更新）
+                */
+
+                // 再说一下vue2.x中如何监测数组变化
+                /**
+                 * 使用了函数劫持的方式，重新写了数组的方法，Vue将data定义的数组进行了原型链重写，指向了自己定义的数组原型方法
+                 * 这样当调用的时候可以通知依赖更新。如果数组中还有引用类型，将数组中引用类型再次递归遍历进行监控
+                */
+
+                // nextTick知道吗，实现原理是什么？
+                /**
+                 * 
+                */
+                
+              
+                // 自我介绍
+                /**
+                 * 你好，我叫邢璐，从事前端开发将近3年工作经验，我的上一家公司是做生活服务类的，所以我们公司做的项目都是和服务类相关，一城一家公众号，一城一家缴费微信小程序
+                 * 在上一家公司技术方面主要运用js vue全家桶 element-ui 微信小程序等，当然再上一个公司收获的不单是技术方面，主要还是业务能力、自学能力以及沟通能力
+                 * 我性格方面不是特别外向也不算内向，性格还不错和同事沟通相处很融洽。我也喜欢交朋友对工作认真负责，肯吃苦。以上是我的介绍，谢谢。
+                */
+
+                // 你的项目是vue搭建的，能告诉我搭建项目的过程和需要注意的地方吗？
+                /**
+                 * 主要脚手架搭建后，添加路由Router，统一一下请求配置和失败的统一处理，处理一些静态资源，统一规定一些项目规范等
+                */
+
+                // 为什么要离职
+                /**
+                 *  上家公司项目开发完成，进入稳定的后期维护了 感觉自己的提升瓶颈了
+                */
+
+                // 你有什么问题想问我？
+                /**
+                 * 团队的情况是什么样的，主要使用那方面的技术
+                 * 需要几轮面试，五险一金都是正常交吗？ 有没有其他的福利待遇
+                 * 如果我入职主要需要做哪方面项目？
+                 * 贵公司的实习期多久？实习期期间薪资怎么发放
+                 * 觉得我今天的面试怎么样，有哪些方面不足，您觉得不满足期望的
+                */
 
 
 
@@ -455,7 +549,6 @@
                 let crr = brr.map(item => item + 3)
                 let drr = arr.concat(crr).sort().map(item => {
                     if (item.includes('3')) {
-                        console.log(item.split(''))
                         return item.split('')[0]
                     }
                     return item;
@@ -490,7 +583,76 @@
                     }, delay)
                 })
             },
-           
+            // 匹配函数，实现一个字符串匹配
+            matchFun(S, T) {
+                if (S.length < T.length) return -1
+                for (let i = 0, len = S.length; i < len; i++) {
+                    if (S.slice(i, i + T.length) === T) return i
+                }
+                return -1
+            },
+
+            // 移动所有的0到尾部，其他数据顺序不变
+            moveZero(arr) {
+                let j = 0
+                for (let i = 0, len = arr.length; i < len - j; i++) {
+                    if (arr[i] === 0) {
+                        const emp = arr.splice(i, 1)
+                        arr.push(0)
+                        i--
+                        j++
+                    }
+                }
+                return arr
+            },
+
+            // 实现add函数
+            addFun() {
+                let args = [...arguments];
+                let fn = function () {
+                    args.push(...arguments);
+                    return fn;
+                }
+                fn.toString = function () {
+                    return args.reduce((a, b) => {
+                        return a + b;
+                    });
+                }
+                return fn;
+            },
+
+            // 给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。
+            numSum(arr, target) {
+                let tmp = []
+                // 找出所有元素
+                for (let i = 0, len = arr.length; i < len; i++) {
+                    let item = target - arr[i]
+                    const index = arr.indexOf(item, i)
+                    if (index > 0 && index !== i) {
+                        tmp.push(index, i)
+                    }
+                }
+
+                // 两层循环找出第一个满足元素
+                return tmp
+            },
+
+            // 判断输入的是否是一个正确的网址。
+            isUrl(urlStr) {
+                try {
+                    const {
+                        href,
+                        origin,
+                        host,
+                        hostname,
+                        pathname
+                    } = new URL(urlStr)
+                    return href && origin && host && hostname && pathname && true
+                } catch (e) {
+                    return false
+                }
+            }
+
         },
         mounted() {
             // 重写bind函数
@@ -535,7 +697,7 @@
             // })
 
             // async 实现sleep延时函数
-            let sleep = (delay=1000) => new Promise((resolve, reject) => {
+            let sleep = (delay = 1000) => new Promise((resolve, reject) => {
                 setTimeout(() => {
                     resolve('我是async延时函数!!')
                 }, delay)
@@ -544,7 +706,6 @@
                 let out = await sleep(delay)
                 return out;
             }
-            // sleepAsync(3000).then(res=>console.log('res:::::', res))
 
 
         }
