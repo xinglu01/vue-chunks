@@ -358,6 +358,16 @@
                  * 查看函数 addFun
                  */
 
+                // es6 es7 es8 常用新特性
+                /**
+                 * let const
+                 * 展开操作符、解构赋值、箭头函数、reset参数（数组）
+                 * 
+                 * es7 新增 includes() 确定数组中是否包含某个值，返回true false
+                 * es8 新增 Object.values() 遍历对象的属性值  ==  Object.keys(obj)   async/await
+                */
+    
+
 
 
                 // 以下为框架层面 面试题
@@ -431,8 +441,85 @@
 
                 // nextTick知道吗，实现原理是什么？
                 /**
-                 * 
+                 * 在下次 DOM 更新循环结束之后执行延迟回调。nextTick主要使用了宏任务和微任务。 
+                 * 根据执行环境分别尝试采用 Promise MutationObserver setImmediate setTimeout
+                 * 定义了一个异步方法，多次调用nextTick会将方法存入队列中，通过这个异步方法清空当前队列。
                 */
+
+                // 说一下Vue的生命周期
+                /**
+                 * beforeCreate     new Vue实例之前，此时不能操作dom
+                 * created          new完实例，此时不能操作dom
+                 * beforeMount      实例挂载之前，此时不能操作dom
+                 * mounted          实例挂载成功后，此时可以操作dom
+                 * beforeUpdate     更新之前
+                 * updated          更新之后
+                 * beforeDestroy    组件销毁之前
+                 * destroyed        组件销毁后
+                */
+
+                //computed 和 watch 区别？
+                /**
+                 * computedd是计算属性 具有缓存，所依赖的数据改变时才重新计算，不支持异步操作
+                 * watch  不具有缓存，页面重新渲染时值不变化也会执行。支持异步操作，依赖的数据发生改变，函数传入两个参数，第一个为新值、第二个为之前的值
+                */
+
+                // 组件中的data为什么是一个函数？
+                /**
+                 * 当一个组件被多次复用时，也就会创建多个实例，data如果为对象，对象属于引用类型，相同的引用可能data中数据相互影响，
+                 * 所以确保组件间data不冲突，data必须为函数。
+                */
+
+                // 说一下v-model的原理
+                /**
+                 * v-model本质是一个语法糖，可以看成value+input方法的语法糖
+                 * 在组件上使用v-model，必须接收 value 属性和 input 事件。this.$emit('input', data) 方法去触发 input事件
+                */
+
+                // Vue模版编译原理知道吗，能简单说一下吗？
+                /**
+                 * 简单说，Vue的编译过程就是将template转化为render函数的过程。会经历以下阶段：
+                    生成AST树优化codegen
+                    首先解析模版，生成AST语法树(一种用JavaScript对象的形式来描述整个模板)。
+                    使用大量的正则表达式对模板进行解析，遇到标签、文本的时候都会执行对应的钩子进行相关处理。
+                    将优化后的AST树转换为可执行的代码
+                */
+                
+                // 再说一下虚拟Dom以及key属性的作用
+                /**
+                 * Virtual DOM本质就是JS对象
+                 * VirtualDOM映射到真实DOM要经历VNode的create、diff、patch等阶段
+                 * 需要在新旧 children 的节点中保存映射关系，以便能够在旧 children 的节点中找到可复用的节点。key也就是children中节点的唯一标识。
+                */
+
+                // keep-alive了解吗?
+                /**
+                 * keep-alive可以实现组件缓存，当组件切换时不会对当前组件进行卸载。
+                 * 两个属性include/exclude
+                 * 两个生命周期activated/ deactivated
+                */
+                
+                // 你都做过哪些Vue的性能优化？
+                /**
+                 * // 编码阶段优化
+                 * 使用路由懒加载、异步组件
+                 * key保证唯一
+                 * 防抖、节流
+                 * 第三方模块按需导入
+                 * 
+                 * // 打包优化
+                 * 压缩代码
+                 * 使用cdn加载第三方模块
+                 * splitChunks抽离公共文件
+                 * sourceMap 优化
+                */
+
+                // hash路由和history路由实现原理说一下
+                /**
+                 * location.hash的值实际就是URL中#后面的东西。变更页面不刷新
+                 * history实际采用了HTML5中提供的API来实现，主要有history.pushState()和history.replaceState()。
+                */
+                
                 
               
                 // 自我介绍
@@ -459,6 +546,15 @@
                  * 如果我入职主要需要做哪方面项目？
                  * 贵公司的实习期多久？实习期期间薪资怎么发放
                  * 觉得我今天的面试怎么样，有哪些方面不足，您觉得不满足期望的
+                */
+
+                // 遇到什么难点，怎么解决的？
+                /**
+                 * 1、微信内核浏览器只记住首次进入页面的路由参数，jssdk支付时传参数路由是错误的
+                 * 解决方法： location.reload()  强刷页面
+                 * 
+                 * 2、判断环境 navigator.userAgent
+                 * 
                 */
 
 
